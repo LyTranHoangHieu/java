@@ -104,6 +104,18 @@ public class test1 {
         temp[sizeTemp - 1] = k;
         outputArray(temp);
     }
+    public static void addHead(int[] a){
+        Scanner input = new Scanner(System.in);
+        int k;
+        System.out.println("Nhập nội dung phần tử cần thêm:");
+        k = input.nextInt();
+        int n = a.length;
+        int sizeTemp = n + 1;
+        int[] temp = new int[sizeTemp];
+        System.arraycopy(a, 0, temp, 1, n);
+        temp[0] = k;
+        outputArray(temp);
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n;
@@ -124,5 +136,6 @@ public class test1 {
         symmetricArray(a);
         sum3elements(a);
         addTail(a);
+        addHead(a);
     }
 }
