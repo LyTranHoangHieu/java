@@ -37,8 +37,8 @@ public class test1 {
         for(int i = 1; i < n; i++)
             if(a[i] < minValue)
                 minValue = a[i];
-        System.out.println("Phần tử có giá trị lớn nhất trong mảng là: " + minValue);
-        System.out.println("Vị trí của phần tử lớn nhất trong mảng là:");
+        System.out.println("Phần tử có giá trị nhỏ nhất trong mảng là: " + minValue);
+        System.out.println("Vị trí của phần tử nhỏ nhất trong mảng là:");
         for(int i = 0; i < n; i++)
             if(a[i] == minValue)
                 System.out.print(i + "\t");
@@ -70,11 +70,13 @@ public class test1 {
     }
     public static void symmetricArray(int[] a){
         int n = a.length;
-        int count = 0;
-        for(int i = 0; i < n; i++)
-            if(a[i] != a[n - 1 - i])
-                count++;
-        if(count == 0)
+        boolean flag = true;
+        for(int i = 0; i < n / 2; i++)
+            if(a[i] != a[n - 1 - i]){
+                flag = false;
+                break;
+            }
+        if(flag)
             System.out.println("Mảng đối xứng");
         else
             System.out.println("Mảng không đối xứng");
@@ -116,6 +118,16 @@ public class test1 {
         temp[0] = k;
         outputArray(temp);
     }
+    public static void revevrseArray(int[] a){
+        int n = a.length;
+        int[] temp = new int[n];
+        int j = 0;
+        for(int i = n - 1; i >= 0; i--){
+            temp[j] = a[i];
+            j++;
+        }
+        outputArray(temp);
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n;
@@ -127,15 +139,16 @@ public class test1 {
         inputArray(a);
         System.out.println("Mảng vừa nhập");
         outputArray(a);
-        maxValue_maxPosition(a);
-        minValue_minPosition(a);
-        System.out.println("Mảng sắp theo thứ tự giảm dần");
-        sortDESC(a);
-        System.out.println("Mảng sắp xếp theo thứ tự tăng dần");
-        sortASC(a);
-        symmetricArray(a);
-        sum3elements(a);
-        addTail(a);
-        addHead(a);
+//        maxValue_maxPosition(a);
+//        minValue_minPosition(a);
+//        System.out.println("Mảng sắp theo thứ tự giảm dần");
+//        sortDESC(a);
+//        System.out.println("Mảng sắp xếp theo thứ tự tăng dần");
+//        sortASC(a);
+//        symmetricArray(a);
+//        sum3elements(a);
+//        addTail(a);
+//        addHead(a);
+        revevrseArray(a);
     }
 }
